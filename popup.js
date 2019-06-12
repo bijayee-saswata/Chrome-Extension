@@ -25,12 +25,23 @@ let gitCustm = document.getElementById("git"),
 let storedNames;
 
 save.addEventListener("click", () => {
-  let url = [git.value, fb.value, ytb.value, twt.value, lin.value];
-  localStorage.setItem("url", JSON.stringify(url));
-
-  storedNames = JSON.parse(localStorage.getItem("url"));
-  //   console.log(git.value, fb.value, twt.value, ytb.value, lin.value);
-  console.log(storedNames);
+  if (
+    git.value == "" &&
+    fb.value == "" &&
+    ytb.value == "" &&
+    twt.value == "" &&
+    lin.value == ""
+  ) {
+    alert("Please fill any one the below field...");
+  } else {
+    let url = [git.value, fb.value, ytb.value, twt.value, lin.value];
+    localStorage.setItem("urli", JSON.stringify(url));
+    git.value = "";
+    fb.value = "";
+    ytb.value = "";
+    twt.value = "";
+    lin.value = "";
+  }
 });
 
 //urls
@@ -41,24 +52,43 @@ let gitUrl = "https://github.com/",
   linUrl = "https://linkedin.com/";
 
 function urlGrabber(id) {
-  switch (id) {
-    case "git":
-      gitCustm.href = `${gitUrl}${storedNames[0]}`;
-      break;
-    case "fb":
-      fbCustm.href = `${fbUrl}${storedNames[1]}`;
-      break;
-    case "ytb":
-      fbCustm.href = `${ytbUrl}${storedNames[2]}`;
-      break;
-    case "twtUrl":
-      fbCustm.href = `${twtUrl}${storedNames[3]}`;
-      break;
-    case "lin":
-      fbCustm.href = `${linUrl}${storedNames[4]}`;
-      break;
+  if (localStorage.getItem("url") != null) {
+    storedNames = JSON.parse(localStorage.getItem("url"));
+    // console.log(storedNames[2]);
+    switch (id) {
+      case "git":
+        gitCustm.href = `${gitUrl}${storedNames[0]}`;
+        break;
+      case "fb":
+        fbCustm.href = `${fbUrl}${storedNames[1]}`;
+        break;
+      case "ytb":
+        ytbCustm.href = `${ytbUrl}${storedNames[2]}`;
+        break;
+      case "twt":
+        twtCustm.href = `${twtUrl}${storedNames[3]}`;
+        break;
+      case "lin":
+        linCustm.href = `${linUrl}${storedNames[4]}`;
+        break;
+    }
+  } else {
+    switch (id) {
+      case "git":
+        gitCustm.href = `${gitUrl}`;
+        break;
+      case "fb":
+        fbCustm.href = `${fbUrl}`;
+        break;
+      case "ytb":
+        ytbCustm.href = `${ytbUrl}`;
+        break;
+      case "twt":
+        twtCustm.href = `${twtUrl}`;
+        break;
+      case "lin":
+        linCustm.href = `${linUrl}`;
+        break;
+    }
   }
-
-  console.log(id);
-  //   gitCustm.href = "https://github.com/bijayee-saswata";
 }

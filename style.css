@@ -69,14 +69,12 @@ img {
 .btn {
   padding: 5px;
 }
-/* .save {
-  background-color: green;
-  padding: 5px;
+.save {
+  padding: 3px 8px 3px 8px;
 }
 .close {
-  background-color: red;
-  padding: 5px;
-} */
+  padding: 3px 8px 3px 8px;
+}
 .container {
   margin-top: 5px;
   width: 100%;
@@ -87,4 +85,13 @@ img {
 }
 .content-item {
   padding: 10px;
+}
+.note {
+  padding: 2px;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+.danger {
+  color: red;
+  font-weight: bolder;
 }
