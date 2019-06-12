@@ -6,6 +6,7 @@ body {
   min-height: 180px;
   padding: 0;
   width: 384px;
+  text-align: center;
 }
 
 h1 {
@@ -64,4 +65,26 @@ img {
 .flex .fa {
   font-size: 40px;
   color: #2f5876;
+}
+.btn {
+  padding: 5px;
+}
+/* .save {
+  background-color: green;
+  padding: 5px;
+}
+.close {
+  background-color: red;
+  padding: 5px;
+} */
+.container {
+  margin-top: 5px;
+  width: 100%;
+  display: none;
+}
+.container i {
+  padding: 2px;
+}
+.content-item {
+  padding: 10px;
 }
